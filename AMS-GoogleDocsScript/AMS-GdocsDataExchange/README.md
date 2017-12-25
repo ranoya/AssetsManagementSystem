@@ -1,0 +1,1 @@
+Este código deve ser incorporado em uma planilha para gerenciar a troca de dados entre a planilha e sistemas externos (como websites). Ele seleciona os dados conforme instruções dadas, e exporta em json as informações solicitadas.
