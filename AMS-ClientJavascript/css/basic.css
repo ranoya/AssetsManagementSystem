@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen');
+
+body {
+  
+  margin-bottom: 15px;
+  
+  
+}
+
+.listalinha {
+  
+  clear:both;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  
+}
+
+.listatitulo {
+  
+  color: grey;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 22px;
+  font-weight: lighter;
+  line-height: 32px;
+  text-decoration: none;
+  padding: 5px 15px 7px 15px;
+  border-radius: 4px;
+  margin: 7px 10px 15px 0;
+  width: auto;  
+  -webkit-transition: all .6s ease-in-out;
+  -moz-transition: all .6s ease-in-out;
+  -o-transition: all .6s ease-in-out;
+  
+}
+
+.listatitulo:hover {
+
+  background-color: grey;
+  color: white;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  
+}
+
+.listatitulopublico {
+  
+  color: grey;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 22px;
+  font-weight: lighter;
+  line-height: 32px;
+  text-decoration: none;
+  padding: 0 15px 0 15px;
+  border-radius: 4px;
+  margin: 0 10px 0 0;
+  width: auto;    
+  
+  
+}
+
+.listadetalhe {
+  
+  clear: both;
+  font-size: 16px;
+  font-style: italic;
+  margin: 0 0 0 0;
+  
+}
+
+.listathumb {
+  width: 300px;
+  height: 200px;
+  float: left;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  border: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.videogrid {
+  width: 320px; 
+  height: 200px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.loadingsignal {
+  
+  width:100%;
+  clear: both;
+  text-align: center;
+  padding: 0 15px 0 15px;
+  
+}
+
+.loadingimage {
+  
+  width: 120px;
+  
+}
+

@@ -1,0 +1,180 @@
+<!--
+
+usar:
+https://www.ranoya.com/AssetsManager/duoreader/?text=[link para texto]&note=[link para anotacoes]
+
+
+-->
+       
+
+<!DOCTYPE html>
+<html>    
+  <head> 
+    
+  <style>
+    
+  .changepanels {
+    
+    position:fixed;
+    z-index: 2000;
+    width: 40px;
+    height: 40px;
+    right: 44%;
+    bottom: 60px;
+    background-color: grey;
+    color: white;
+    
+    }
+    
+  .changenotes {
+      
+    position:fixed;
+    z-index: 2000;
+    width: 40px;
+    height: 40px;
+    right: 30px;
+    bottom: 60px;
+    background-color: grey;
+    color: white;"
+      
+    }
+   
+  .changenotes:hover, .changepanels:hover {
+      
+    background-color: #f44292;
+      
+    }
+    
+  </style>  
+    
+  <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script>
+       
+    var swaped = false;
+    var generalnotes = false;
+    var swaplink;
+    
+    function swappanel() {
+      
+      //var panel1 = $('#frameA').prop('src');
+      //var panel2 = $('#frameB').prop('src');
+      //$('#frameA').prop('src',panel2);
+      //$('#frameB').prop('src',panel1);
+      
+      if (swaped) { 
+      swaped = false; 
+      $('#anotacoes').css('left', '');
+      $('#anotacoes').css('right', '30px');
+
+      $('#frameA').css('float', 'left');
+      $('#frameB').css('float', 'right');
+        
+      $('#frameA').css('width', '55%');
+      $('#frameB').css('width', '45%');
+       } else { 
+      swaped = true;
+       $('#anotacoes').css('right', '');
+      $('#anotacoes').css('left', '10px');
+  
+      $('#frameA').css('float', 'right');
+      $('#frameB').css('float', 'left');
+
+      $('#frameA').css('width', '45%');
+      $('#frameB').css('width', '55%');
+      }
+      
+    }
+    
+		
+		// resize frames
+		
+		$(window).resize(function(){
+    		
+					var tamanho = $(window).height();
+					$('#frameB').css('height', tamanho);
+					$('#frameA').css('height', tamanho);
+					
+			
+		});
+		
+		
+    function swapnotes() {
+      
+      if (!swaplink) { swaplink = $('#frameB').prop('src'); console.log ('agora swaplink = ' + $('#frameB').prop('src')); }
+      if (!swaplink) { swaplink = $('#frameA').prop('src'); }
+      
+      
+      if (generalnotes) {
+                
+        $('#frameB').prop('src',swaplink);
+        generalnotes = false;
+       
+      } else {
+        
+        $('#frameB').prop('src', "https://docs.google.com/spreadsheets/d/1grsfcsxXCgugfscF3aMzAyWZX_ekFwzsGF8xjbthqXU/edit#gid=1588703414");
+				generalnotes = true;
+        
+      }
+      
+      
+    }
+    
+    
+    $.parametros = function(name){
+	          var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results==null){
+              return null;
+            } else{
+	            return results[1] || 0;
+            }
+        }
+    
+    
+    $( document ).ready(function() {
+     
+      if($.parametros('text')) {
+        
+        $('#frameA').prop('src', $.parametros('text'));
+        
+      }
+      
+      if($.parametros('note')) {
+        
+        $('#frameB').prop('src', $.parametros('note'));
+        
+      }
+			
+			if($.parametros('fixed')) {
+
+				$('.changepanels').css('display', 'none');
+				$('.changenotes').css('display', 'none');
+				
+			}
+      
+    });
+  </script>
+  
+  </head>
+  
+  
+    <body style="padding: 0 0 0 0; margin: 0 0 0 0; background-color: white; height: 100%; overflow-y: hidden;">
+    
+    <div style="height: 1200px;">
+
+    <iframe id='frameA' target="_self"  height=100% style="width:55%; float: left;" src="https://www.ranoya.com/AssetsManager/duoreader/null.html" frameborder=0>
+    </iframe>
+    
+    <iframe id='frameB' target="_self" height=100% style="width:45%; max-width: 1200px; float: left;" src="https://www.ranoya.com/AssetsManager/duoreader/null.html" frameborder=0>
+    </iframe>
+      
+    </div>
+     
+     <a href="javascript:swappanel();" class="changepanels" id="swapbutton"><img src="https://www.ranoya.com/Assets/WebsiteIcons/icon-swap-white.svg" style="width: 80%; height: 80%px; padding-top: 10%; padding-left: 10%;" /></a> 
+  
+     <a href="javascript:swapnotes();" id="anotacoes" class="changenotes" id="swapnotes"><img src="https://www.ranoya.com/Assets/WebsiteIcons/icon-message-white.svg" style="width: 80%; height: 80%px; padding-top: 10%; padding-left: 10%;" /></a> 
+
+    </body>
+  
+  
+  
+</html>
